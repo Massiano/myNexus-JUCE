@@ -164,7 +164,7 @@ public:
 
     void initialise(const juce::String&) override
     {
-        formatManager.addFormat(new juce::VST3PluginFormat());
+        juce::addDefaultFormatsToManager(formatManager);
         
         juce::OwnedArray<juce::PluginDescription> descs;
         juce::VST3PluginFormat vst3;
