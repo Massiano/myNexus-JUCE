@@ -1,4 +1,4 @@
-name: Build MyHost
+name: Build TWENTY nexus
 
 on:
   workflow_dispatch:
