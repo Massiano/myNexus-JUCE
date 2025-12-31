@@ -164,8 +164,8 @@ public:
 
     void initialise(const juce::String&) override
     {
-        formatManager.addDefaultFormats();
-
+        formatManager.addFormat(new juce::VST3PluginFormat());
+        
         juce::OwnedArray<juce::PluginDescription> descs;
         juce::VST3PluginFormat vst3;
         vst3.findAllTypesForFile(descs, NEXUS_PATH);
