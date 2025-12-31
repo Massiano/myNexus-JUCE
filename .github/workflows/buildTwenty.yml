@@ -12,7 +12,7 @@ jobs:
           submodules: recursive
 
       - name: Configure
-        run: cmake -B build -S my-host -DCMAKE_BUILD_TYPE=Release
+        run: cmake -B build -S twentyPlayer -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
         run: cmake --build build --config Release
@@ -22,22 +22,3 @@ jobs:
         with:
           name: MyHost-Windows
           path: build/Release/*.exe
-
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Configure
-        run: cmake -B build -S my-host -DCMAKE_BUILD_TYPE=Release
-
-      - name: Build
-        run: cmake --build build --config Release
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: MyHost-macOS
-          path: build/MyHost.app
