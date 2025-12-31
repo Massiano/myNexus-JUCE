@@ -32,4 +32,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MyHost-Windows
-          path: build/Release/*.exe
+          path: build/TwentyPlayer_artefacts/Release/*.exe
+
