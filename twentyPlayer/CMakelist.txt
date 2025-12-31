@@ -10,8 +10,8 @@ set(JUCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../modules")
 # Add JUCE modules manually
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_BINARY_DIR}/JUCE)
 
-juce_add_gui_app(MyHost
-    PRODUCT_NAME "MyHost"
+juce_add_gui_app(twentyPlayer
+    PRODUCT_NAME "twentyPlayer"
 )
 
 target_sources(MyHost PRIVATE
