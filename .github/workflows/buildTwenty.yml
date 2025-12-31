@@ -11,6 +11,17 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Cache JUCE modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            build/_deps
+            build/CMakeFiles
+            build/JUCE_build
+          key: juce-modules-${{ runner.os }}-${{ hashFiles('modules/**') }}
+          restore-keys: |
+            juce-modules-${{ runner.os }}-
+          
       - name: Configure
         run: cmake -B build -S twentyPlayer -DCMAKE_BUILD_TYPE=Release
 
