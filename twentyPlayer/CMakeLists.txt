@@ -1,24 +1,20 @@
 cmake_minimum_required(VERSION 3.22)
-project(MyHost VERSION 1.0.0)
+project(TwentyPlayer VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Adjust this path to where JUCE modules live relative to this folder
-set(JUCE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../modules")
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/.. JUCE_build EXCLUDE_FROM_ALL)
 
-# Add JUCE modules manually
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_BINARY_DIR}/JUCE)
-
-juce_add_gui_app(twentyPlayer
-    PRODUCT_NAME "twentyPlayer"
+juce_add_gui_app(TwentyPlayer
+    PRODUCT_NAME "TwentyPlayer"
 )
 
-target_sources(MyHost PRIVATE
-    Main.cpp
+target_sources(TwentyPlayer PRIVATE
+    main.cpp
 )
 
-target_compile_definitions(MyHost PRIVATE
+target_compile_definitions(TwentyPlayer PRIVATE
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
     JUCE_VST3_CAN_REPLACE_VST2=0
@@ -28,7 +24,7 @@ target_compile_definitions(MyHost PRIVATE
     JUCE_PLUGINHOST_LV2=0
 )
 
-target_link_libraries(MyHost PRIVATE
+target_link_libraries(TwentyPlayer PRIVATE
     juce::juce_audio_basics
     juce::juce_audio_devices
     juce::juce_audio_formats
